@@ -127,20 +127,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="POF-lN-vIP">
-                                                    <rect key="frame" x="0.0" y="27" width="414" height="162"/>
+                                                    <rect key="frame" x="47" y="0.0" width="320" height="216"/>
                                                     <connections>
                                                         <action selector="datePickerChanged:" destination="GEN-1B-9IA" eventType="valueChanged" id="Lvd-O9-y8a"/>
                                                         <action selector="datePickerChanged:" destination="GEN-1B-9IA" eventType="primaryActionTriggered" id="lYr-DZ-Kwi"/>
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="POF-lN-vIP" secondAttribute="trailing" constant="47" id="PYW-55-jtq"/>
+                                                <constraint firstItem="POF-lN-vIP" firstAttribute="top" secondItem="2Xk-Pt-LEj" secondAttribute="top" id="W5d-hv-m5V"/>
+                                                <constraint firstAttribute="bottom" secondItem="POF-lN-vIP" secondAttribute="bottom" id="WKV-ui-D4c"/>
+                                                <constraint firstItem="POF-lN-vIP" firstAttribute="leading" secondItem="2Xk-Pt-LEj" secondAttribute="leading" constant="47" id="XKN-g7-xz4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="POF-lN-vIP" secondAttribute="bottom" constant="27" id="A61-le-Bsx"/>
-                                            <constraint firstAttribute="trailing" secondItem="POF-lN-vIP" secondAttribute="trailing" id="gq1-Nd-pQZ"/>
-                                            <constraint firstItem="POF-lN-vIP" firstAttribute="leading" secondItem="WLg-Fu-AeT" secondAttribute="leading" id="oBb-XA-gyU"/>
-                                            <constraint firstItem="POF-lN-vIP" firstAttribute="top" secondItem="WLg-Fu-AeT" secondAttribute="top" constant="27" id="qAp-h0-PRB"/>
-                                        </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -176,7 +176,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New To-Do" largeTitleDisplayMode="never" id="v7K-K6-Jyh">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="euU-sh-cJB">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="euU-sh-cJB">
                             <connections>
                                 <segue destination="I6t-Ff-j8R" kind="unwind" unwindAction="unwindToToDoListWithSegue:" id="uF1-eZ-AVB"/>
                             </connections>
