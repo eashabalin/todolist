@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		941F107E263C9C62006B22C7 /* ToDoDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941F107D263C9C62006B22C7 /* ToDoDetailTableViewController.swift */; };
 		94BA037F263C5238003E4F02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA037E263C5238003E4F02 /* AppDelegate.swift */; };
 		94BA0381263C5238003E4F02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA0380263C5238003E4F02 /* SceneDelegate.swift */; };
 		94BA0386263C5238003E4F02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94BA0384263C5238003E4F02 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		941F107D263C9C62006B22C7 /* ToDoDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDetailTableViewController.swift; sourceTree = "<group>"; };
 		94BA037B263C5238003E4F02 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BA037E263C5238003E4F02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94BA0380263C5238003E4F02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				94BA037E263C5238003E4F02 /* AppDelegate.swift */,
 				94BA0380263C5238003E4F02 /* SceneDelegate.swift */,
 				94BA0384263C5238003E4F02 /* Main.storyboard */,
+				941F107D263C9C62006B22C7 /* ToDoDetailTableViewController.swift */,
 				94BA039B263C5F18003E4F02 /* ToDo.swift */,
 				94BA039E263C73AE003E4F02 /* ToDoTableViewController.swift */,
 				94BA0387263C5247003E4F02 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94BA039C263C5F18003E4F02 /* ToDo.swift in Sources */,
+				941F107E263C9C62006B22C7 /* ToDoDetailTableViewController.swift in Sources */,
 				94BA039F263C73AE003E4F02 /* ToDoTableViewController.swift in Sources */,
 				94BA037F263C5238003E4F02 /* AppDelegate.swift in Sources */,
 				94BA0381263C5238003E4F02 /* SceneDelegate.swift in Sources */,
