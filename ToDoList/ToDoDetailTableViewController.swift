@@ -9,7 +9,7 @@ import UIKit
 
 class ToDoDetailTableViewController: UITableViewController {
     
-    var isDatePickerHidden = false
+    var isDatePickerHidden = true
     let dateLabelIndexPath = IndexPath(row: 0, section: 1)
     let datePickerIndexPath = IndexPath(row: 1, section: 1)
     let notesIndexPath = IndexPath(row: 0, section: 2)
@@ -44,7 +44,7 @@ class ToDoDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath == dateLabelIndexPath {
             isDatePickerHidden.toggle()
-            dueDateLabel.textColor = .black
+//            dueDateLabel.textColor = .black
             updateDueDateLabel(date: dueDatePickerView.date)
             tableView.beginUpdates()
             tableView.endUpdates()
@@ -59,7 +59,10 @@ class ToDoDetailTableViewController: UITableViewController {
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
     }
-    @IBAction func returnPressed(_ sender: UITextField) {
+    @IBAction func returnPressedInTitleTF(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    @IBAction func returnPressedInNotesTF(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
     @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
