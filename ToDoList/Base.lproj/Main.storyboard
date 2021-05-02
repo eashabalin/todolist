@@ -98,8 +98,9 @@
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Remind me to..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UAE-AQ-ONd">
                                                     <rect key="frame" x="64" y="5" width="330" height="34"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
                                                     <connections>
                                                         <action selector="returnPressedInTitleTF:" destination="GEN-1B-9IA" eventType="primaryActionTriggered" id="hZe-Mh-gkw"/>
                                                         <action selector="textEditingChanged:" destination="GEN-1B-9IA" eventType="editingChanged" id="kup-nH-yHd"/>
@@ -158,7 +159,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="216" id="WLg-Fu-AeT">
                                         <rect key="frame" x="0.0" y="178.5" width="414" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WLg-Fu-AeT" id="2Xk-Pt-LEj">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WLg-Fu-AeT" id="2Xk-Pt-LEj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -171,10 +172,10 @@
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="POF-lN-vIP" secondAttribute="trailing" constant="47" id="PYW-55-jtq"/>
-                                                <constraint firstItem="POF-lN-vIP" firstAttribute="top" secondItem="2Xk-Pt-LEj" secondAttribute="top" id="W5d-hv-m5V"/>
-                                                <constraint firstAttribute="bottom" secondItem="POF-lN-vIP" secondAttribute="bottom" id="WKV-ui-D4c"/>
-                                                <constraint firstItem="POF-lN-vIP" firstAttribute="leading" secondItem="2Xk-Pt-LEj" secondAttribute="leading" constant="47" id="XKN-g7-xz4"/>
+                                                <constraint firstItem="POF-lN-vIP" firstAttribute="top" secondItem="2Xk-Pt-LEj" secondAttribute="top" id="BC5-1u-bwb"/>
+                                                <constraint firstItem="POF-lN-vIP" firstAttribute="leading" secondItem="2Xk-Pt-LEj" secondAttribute="leading" constant="47" id="CMy-DC-CxV"/>
+                                                <constraint firstAttribute="bottom" secondItem="POF-lN-vIP" secondAttribute="bottom" id="SCj-GH-0Y6"/>
+                                                <constraint firstAttribute="trailing" secondItem="POF-lN-vIP" secondAttribute="trailing" constant="47" id="voO-oF-mJU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -192,12 +193,13 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KZq-C5-H6Y">
                                                     <rect key="frame" x="20" y="10" width="374" height="180"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes"/>
                                                     <connections>
                                                         <action selector="returnPressedInNotesTF:" destination="GEN-1B-9IA" eventType="primaryActionTriggered" id="euz-BL-JX7"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="KZq-C5-H6Y" secondAttribute="trailing" constant="20" id="0hp-Ct-87d"/>
                                                 <constraint firstItem="KZq-C5-H6Y" firstAttribute="leading" secondItem="9Ne-yz-OQ8" secondAttribute="leading" constant="20" id="P7O-fn-f3D"/>

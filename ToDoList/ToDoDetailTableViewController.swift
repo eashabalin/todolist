@@ -43,10 +43,12 @@ class ToDoDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath {
         case datePickerIndexPath where isDatePickerHidden == true:
+            dueDatePickerView.isHidden = true
             return 0
         case notesIndexPath:
             return 200
         default:
+            dueDatePickerView.isHidden = false
             return UITableView.automaticDimension
         }
     }
@@ -54,22 +56,25 @@ class ToDoDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath == dateLabelIndexPath {
             isDatePickerHidden.toggle()
-//            dueDateLabel.textColor = .black
             updateDueDateLabel(date: dueDatePickerView.date)
             tableView.beginUpdates()
             tableView.endUpdates()
         }
     }
     
+    // ОШИБКА ЗДЕСЬ!!111 ОАОАОАОА \/ \/ \/ \/ \/
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard segue.identifier == "saveUnwind" else { return }
-        
-        let title = titleTextField.text!
-        let isComplete = isCompleteButton.isSelected
-        let dueDate = dueDatePickerView.date
-        let notes = notesTextField.text
-        todo = ToDo(title: title, isComplete: isComplete, dueDate: dueDate, notes: notes)
+        if todo == nil {
+            todo = ToDo(title: titleTextField.text!, isComplete: isCompleteButton.isSelected, dueDate: dueDatePickerView.date)
+        } else {
+            todo?.title = titleTextField.text!
+            todo?.isComplete = isCompleteButton.isSelected
+            todo?.dueDate = dueDatePickerView.date
+            todo?.notes = notesTextField.text
+        }
     }
     
     @IBOutlet weak var titleTextField: UITextField!
