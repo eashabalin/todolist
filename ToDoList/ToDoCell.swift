@@ -7,8 +7,14 @@
 
 import UIKit
 
-class ToDoCell: UITableViewCell {
+protocol ToDoCellDelegate: AnyObject {
+    func checkmarkTapped(sender: ToDoCell)
+}
 
+class ToDoCell: UITableViewCell {
+    
+    weak var delegate: ToDoCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,4 +26,10 @@ class ToDoCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var isCompleteButton: UIButton!
+    @IBAction func completeButtonTapped(_ sender: UIButton) {
+        delegate?.checkmarkTapped(sender: self)
+    }
+    
 }
