@@ -23,6 +23,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="DGO-lE-1T0" kind="presentation" id="exw-uy-6Qt"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -181,13 +184,13 @@
                     <navigationItem key="navigationItem" title="New To-Do" largeTitleDisplayMode="never" id="v7K-K6-Jyh">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="euU-sh-cJB">
                             <connections>
-                                <segue destination="I6t-Ff-j8R" kind="unwind" unwindAction="unwindToToDoListWithSegue:" id="uF1-eZ-AVB"/>
+                                <segue destination="I6t-Ff-j8R" kind="unwind" unwindAction="unwindToToDoListWithSegue:" id="H31-ap-3mK"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="SBt-cb-ZUp">
                             <connections>
                                 <action selector="textEditingChanged:" destination="GEN-1B-9IA" id="CMG-gU-H4d"/>
-                                <segue destination="I6t-Ff-j8R" kind="unwind" identifier="saveRewind" unwindAction="unwindToToDoListWithSegue:" id="wCW-bt-WgD"/>
+                                <segue destination="I6t-Ff-j8R" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoListWithSegue:" id="sO0-yX-ylS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -195,6 +198,7 @@
                         <outlet property="dueDateLabel" destination="24B-Cd-UUE" id="yvj-WJ-i7a"/>
                         <outlet property="dueDatePickerView" destination="POF-lN-vIP" id="qPH-wa-bch"/>
                         <outlet property="isCompleteButton" destination="a4G-rG-A2I" id="tMK-np-f0q"/>
+                        <outlet property="notesTextField" destination="KZq-C5-H6Y" id="E2I-g8-laN"/>
                         <outlet property="saveButton" destination="SBt-cb-ZUp" id="OeW-Tz-8fd"/>
                         <outlet property="titleTextField" destination="UAE-AQ-ONd" id="kFS-ig-ssq"/>
                     </connections>
@@ -213,7 +217,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="GEN-1B-9IA" kind="relationship" relationship="rootViewController" id="Emy-Rn-NNJ"/>
+                        <segue destination="GEN-1B-9IA" kind="relationship" relationship="rootViewController" destinationCreationSelector="editToDo:sender:" id="Emy-Rn-NNJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGW-9M-NUf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -237,6 +241,9 @@
             <point key="canvasLocation" x="-2453" y="-110"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="E2I-ym-6M8"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>

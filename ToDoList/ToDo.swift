@@ -36,6 +36,3 @@ struct ToDo: Equatable {
         return formatter
     }()
 }
-
-
-
