@@ -18,9 +18,19 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
             todos[indexPath.row] = todo
             tableView.reloadRows(at: [indexPath], with: .automatic)
             ToDo.saveToDos(todos)
+            if todo.isComplete == true {
+                Notification.unschedule(id: todo.id)
+            } else if todo.isComplete == false {
+                let notification = Notification(todo: todo)
+                notification.schedule { (permissionGranted) in
+                    if !permissionGranted {
+                        self.presentNeedAuthorizationAlert()
+                    }
+                }
+            }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let savedTodos = ToDo.loadToDos() {
@@ -31,13 +41,13 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
         
         navigationItem.leftBarButtonItem = editButtonItem
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellIdentifier", for: indexPath) as! ToDoCell
         let todo = todos[indexPath.row]
@@ -46,7 +56,7 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
         cell.delegate = self
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -59,26 +69,16 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
         }
     }
     
-    //    @IBAction func unwindToToDoList(segue: UIStoryboardSegue) {
-    //        if segue.identifier == "saveUnwind" {
-    //            let sourceViewController = segue.source as! ToDoDetailTableViewController
-    //            let todo = sourceViewController.todo!
-    //            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-    //                tableView.deselectRow(at: selectedIndexPath, animated: true)
-    //                todos[selectedIndexPath.row] = todo
-    //                tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
-    //            } else {
-    //                let newIndexPath = IndexPath(row: todos.count, section: 0)
-    //                todos.append(todo)
-    //                tableView.insertRows(at: [newIndexPath], with: .automatic)
-    //            }
-    //        } else {
-    //            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-    //                tableView.deselectRow(at: selectedIndexPath, animated: true)
-    //            }
-    //        }
-    //        ToDo.saveToDos(todos)
-    //    }
+    func presentNeedAuthorizationAlert() {
+        let title = "Authorization Needed"
+        let message = "To-Do's don't work without notifications, and it looks like you haven't granted us permission to send you those. Please go to the iOS Settings app and grant us notification permissions."
+        let alert = UIAlertController(title: title, message: message,
+           preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default,
+           handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func unwindToToDoList(segue: UIStoryboardSegue) {
         guard segue.identifier == "saveUnwind" else { return }
@@ -91,6 +91,17 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate {
                 let newIndexPath = IndexPath(row: todos.count, section: 0)
                 todos.append(todo)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+            ToDo.saveToDos(todos)
+            if todo.isComplete == false {
+                let notification = Notification(todo: todo)
+                notification.schedule { (permissionGranted) in
+                    if !permissionGranted {
+                        self.presentNeedAuthorizationAlert()
+                    }
+                }
+            } else if todo.isComplete == true {
+                Notification.unschedule(id: todo.id)
             }
         }
     }

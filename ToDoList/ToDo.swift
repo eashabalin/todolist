@@ -9,7 +9,7 @@ import Foundation
 
 struct ToDo: Equatable, Codable {
     
-    var id = UUID()
+    var id = UUID().uuidString
     var title: String
     var isComplete: Bool
     var dueDate: Date
