@@ -1,5 +1,5 @@
 # todolist
-First guided project from "Develop in Swift Data Collections" (Book: Apple Education. «Develop in Swift Data Collections». Apple Inc. - Education, 2020. Apple Books. https://books.apple.com/ru/book/develop-in-swift-data-collections/id1511183970).
+The first guided project from "Develop in Swift Data Collections" (Book: Apple Education. «Develop in Swift Data Collections». Apple Inc. - Education, 2020. Apple Books. https://books.apple.com/ru/book/develop-in-swift-data-collections/id1511183970).
 
 An iPhone To-Do List app.
 
